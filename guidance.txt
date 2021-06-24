@@ -1,0 +1,52 @@
+-- START VIRTUAL ENV
+virtualenv environment_3_9_5 -- numbers reffers to installed python version
+
+-- ACTIVATE VIRTUAL ENV FOR WINDOWS
+environment_3_9_5/Scripts/activate
+
+-- INSTALL LATEST STABLE VERSION OF DJANGO
+pip install django
+
+-- INSTALL DJANGO REST FRAMEWORK (toolkit for building Web APIs)
+pip install djangorestframework
+
+-- INSTALL DJANGO CORS HEADERS (it allows you to cconnect frontend with API)
+pip install django-cors-headers
+
+-- INSTALL DJOSER (authentication system)
+pip install djoser
+
+-- INSTALL PILLOW (library for managing images)
+pip install Pillow
+
+-- CREATE NEW DJANGO PROJECT
+django-admin startproject "project_name"
+
+-- Add all installed apps to INSTALLED_APPS array in setting.py file
+-- CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+]
+
+-- 'corsheaders.middleware.CorsMiddleware' above 'django.middleware.common.CommonMiddleware' in MIDDLEWARE array
+
+-- In settings.py file:
+    - Add all installed apps to INSTALLED_APPS array in setting.py file
+    - Add CORS_ALLOWED_ORIGINS = [ "http://localhost:8080" ] // url depends on your frontend
+    - Add 'corsheaders.middleware.CorsMiddleware' above 'django.middleware.common.CommonMiddleware' in MIDDLEWARE array
+
+-- Change urls.py file like this: 
+
+    from django.contrib import admin
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('api/v1', include('djoser.urls')),
+        path('api/v1', include('djoser.urls.authtoken'))
+    ]
+-- INITIAL YOUR DATABASE
+python manage.py make migrations    
+python manage.py migrate
+
+-- CREATE SUPER USER
+py manage.py createsuperuser
