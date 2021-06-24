@@ -44,7 +44,7 @@ django-admin startproject "project_name"
         path('api/v1', include('djoser.urls')),
         path('api/v1', include('djoser.urls.authtoken'))
     ]
--- INITIAL YOUR DATABASE
+-- INITIAL YOUR DATABASE  
 python manage.py make migrations    
 python manage.py migrate
 
