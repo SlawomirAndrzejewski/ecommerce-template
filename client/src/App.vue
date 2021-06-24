@@ -38,6 +38,14 @@
         </div>
       </div>
     </nav>
+
+    <section class="section">
+      <router-view />
+    </section>
+
+    <footer class="footer">
+      <p class="has-text-centered">Copyright (c) 2021 onewebdesign.pl</p>
+    </footer>
   </div>
 </template>
 
