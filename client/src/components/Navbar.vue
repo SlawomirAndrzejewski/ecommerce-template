@@ -35,7 +35,7 @@
 
             <router-link to="/cart" class="button is-success">
               <span class="icon"><i class="fas fa-shopping-cart"></i></span>
-              <span>Cart</span>
+              <span>Cart ({{ cartTotalLength }})</span>
             </router-link>
           </div>
         </div>
@@ -47,11 +47,28 @@
 <script>
 export default {
   name: "Navbar",
+  props: ["cart"],
   data() {
     return {
       showMobileMenu: false,
     };
   },
+
+  mounted() {
+    // console.log(this.cart.items[0]);
+  },
+
+  // computed: {
+  //   cartTotalLength() {
+  //     let totalLength = 0;
+
+  //     for (let i = 0; this.cart.items.length; i++) {
+  //       totalLength += this.cart.items[i].quantity;
+  //     }
+
+  //     return totalLength;
+  //   },
+  // },
 };
 </script>
 
