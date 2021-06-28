@@ -49,7 +49,7 @@ python manage.py makemigrations
 python manage.py migrate
 
 -- CREATE SUPER USER
-py manage.py createsuperuser
+py manage.py createsuperuser  
 
 -- RUN YOUR LOCAL SERVER
 py manage.py runserver
