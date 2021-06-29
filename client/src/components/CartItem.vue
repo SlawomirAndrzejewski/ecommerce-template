@@ -12,7 +12,7 @@
       <a @click="incrementQuantity(item)">+</a>
     </td>
     <td>${{ getItemTotal(item).toFixed(2) }}</td>
-    <td><button class="delete"></button></td>
+    <td><button class="delete" @click="removeFromCart(item)"></button></td>
   </tr>
 </template>
 
